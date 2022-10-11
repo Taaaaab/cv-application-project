@@ -18,39 +18,55 @@ class Create extends Component {
    
     handleNameChange = (e) => {
       this.setState({
-        fullName
+        fullName: e.target.value
       });
     };
+
+    handleEmailChange = (e) => {
+        this.setState({
+          email: e.target.value
+        });
+      };
+
+      handlePhoneChange = (e) => {
+        this.setState({
+          phone: e.target.value
+        });
+      };
   
-    onSubmitTask = (e) => {
-      e.preventDefault();
-      console.log(this.in);
-      this.setState({
-          infoArray: this.state.infoArray.concat(this.state.info),
-          info: { 
-            fullName: '', 
-            email: '', 
-            phone: '',
-            id: uniqid()
-        },
-      });
+  
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const infoArray = [`${this.state.fullName}`, `${this.state.email}`, `${this.state.phone}`]
+        console.log(infoArray);
+        return this.state.infoArray.concat(infoArray);
     };
 
     render() {
-        const { info, infoArray } = this.state;
+        const { fullName, email, phone, infoArray } = this.state;
 
         return (
           <div>
-            <form onSubmit={this.onSubmitTask}>
+            <form onSubmit={this.handleSubmit}>
               <input 
-              onChange={this.handleChange}
-              value={info.fullName}
-              placeholder="Name"
               type="text"
+              value={fullName}
+              onChange={this.handleNameChange}
+              placeholder="Name"
               name="fullName" />
-              <button type="submit">
-                Add Task
-              </button>
+               <input 
+              type="text"
+              value={email}
+              onChange={this.handleEmailChange}
+              placeholder="Email"
+              name="email" />
+               <input 
+              type="text"
+              value={phone}
+              onChange={this.handlePhoneChange}
+              placeholder="Phone"
+              name="phone" />
+              <button type="submit">Submit</button>
             </form>
             <Object infoArray={infoArray} />
           </div>
