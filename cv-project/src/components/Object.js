@@ -9,7 +9,7 @@ const Object = (props) => {
   return (
     <ul>
       {infoArray.map((array) => {
-        return <li key={uniqid()}>{array.fullName}</li>;
+        return <ol key={uniqid()}>{array}</ol>;
       })}
     </ul>
   );

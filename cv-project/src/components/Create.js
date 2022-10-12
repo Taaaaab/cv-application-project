@@ -34,15 +34,13 @@ class Create extends Component {
     ];
     console.log(myArray);
 
-    this.setState((state) => {
-      // const infoArray = state.infoArray.concat(state.fullName);
-      const infoArray = [...state.infoArray, state.fullName, state.email, state.phone];
-      return {
-        infoArray,
-        fullName: "",
-        email: "",
-        phone: "",
-      };
+    this.setState({
+      infoArray: this.state.infoArray.concat(myArray),
+      // infoArray: [...this.state.infoArray, myArray],
+      fullName: "",
+      email: "",
+      phone: "",
+
     });
   };
 
@@ -51,6 +49,9 @@ class Create extends Component {
 
     return (
       <div>
+        <div className="returnDisplay">
+          <Object infoArray={infoArray} />
+        </div>
         <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleInputChange}
@@ -73,9 +74,8 @@ class Create extends Component {
             value={phone}
             placeholder="Phone"
           />
-          <button type="submit">Submit</button>
+          <button type="submit" className="btn">Submit</button>
         </form>
-        <Object infoArray={infoArray} />
       </div>
     );
   }
