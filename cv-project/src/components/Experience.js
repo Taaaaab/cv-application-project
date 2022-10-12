@@ -1,67 +1,104 @@
-import { useState } from "react";
+import React, { Component } from "react";
+import Object from "./Object";
 import "../App.css";
 
-const Experience = () => {
-    const [posTitle, setPosTitle] = useState('');
-    const [companyName, setName] = useState('');
-    const [city, setCity] = useState('');
-    const [from, setFrom] = useState('');
-    const [to, setTo] = useState('');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const inputObj = { posTitle, companyName, city, from, to}
-        console.log(inputObj);
+class Experience extends Component {
+ constructor(props) {
+     super(props);
+     this.state = {
+         posTitle: "",
+         companyName: "",
+         city: "",
+         from: "",
+         to: "",
+         xpArray: [],
+     };
+     
+     this.handleInputChange = this.handleInputChange.bind(this);
+ }
+    
+    handleInputChange(e) {
+     const target = e.target;
+     const value = target.value;
+     const name = target.name;
+        
+     this.setState({
+        [name]: value, 
+     });
     }
-
-    return (
-        <div className="create">
-            <h3>Add Work Experience</h3>
-            <form onSubmit={handleSubmit}>
+    
+    handleSubmit = (e) => {
+     e.preventDefault();
+        const myArray = [
+            `${this.state.posTitle}`,
+            `${this.state.companyName}`,
+            `${this.state.city}`,
+            `${this.state.from}`,
+            `${this.state.to}`,
+            ];
+        console.log(myArray);
+        
+        this.setState({
+            xpArray: this.state.xpArray.concat(myArray),
+            posTitle: "",
+            companyName: "",
+            city: "",
+            from: "",
+            to: "",
+        });
+    };
+    
+    render() {
+     const { posTitle, companyName, city, from, to, xpArray } = this.state;
+        
+     return (
+         <div>
+            <div className="returnDisplay">
+              <Object infoArray={xpArray} />
+            </div>
+            <h3>Add Education Experience</h3>
+            <form onSubmit={this.handleSubmit}>
                 <input 
+                onChange={this.handleInputChange}
+                name="posTitle"
                 type="text"
-                placeholder="Position Title"
-                required
                 value={posTitle}
-                onChange={(e) => setPosTitle(e.target.value)}
+                placeholder="Position Title"
                 />
                 <input 
+                onChange={this.handleInputChange}
+                name="companyName"
                 type="text"
-                placeholder="Company"
-                required
                 value={companyName}
-                onChange={(e) => setName(e.target.value)}
+                placeholder="Company Name"
                 />
                 <input 
+                onChange={this.handleInputChange}
+                name="city"
                 type="text"
-                placeholder="City"
-                required
                 value={city}
-                onChange={(e) => setCity(e.target.value)}
+                placeholder="City"
                 />
                 <input 
+                onChange={this.handleInputChange}
+                name="from"
                 type="text"
-                placeholder="From"
-                required
                 value={from}
-                onChange={(e) => setFrom(e.target.value)}
+                placeholder="From"
                 />
                 <input 
+                onChange={this.handleInputChange}
+                name="to"
                 type="text"
-                placeholder="To"
-                required
                 value={to}
-                onChange={(e) => setTo(e.target.value)}
+                placeholder="To"
                 />
                 <button className="btn" type="submit">Submit</button>
-                <p>{ posTitle }</p>
-                <p>{ companyName }</p>
-                <p>{ city }</p>
-                <p>{ from }</p>
-                <p>{ to }</p>
             </form>
         </div>
-    )
+        );
+    }
+    
 }
-
+   
 export default Experience;
