@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Object from "./Object";
 import "../App.css";
 
 class Education extends Component {
@@ -54,6 +55,9 @@ class Education extends Component {
         
      return (
          <div>
+            <div className="returnDisplay">
+              <Object infoArray={eduArray} />
+            </div>
             <h3>Add Education Experience</h3>
             <form onSubmit={this.handleSubmit}>
                 <input 
