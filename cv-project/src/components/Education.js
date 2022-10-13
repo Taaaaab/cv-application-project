@@ -56,6 +56,7 @@ class Education extends Component {
      return (
          <div>
             <div className="returnDisplay">
+              <h3 className="title">Education</h3>
               <Object infoArray={eduArray} />
             </div>
             <h3>Add Education Experience</h3>
