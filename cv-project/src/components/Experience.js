@@ -94,6 +94,7 @@ class Experience extends Component {
                 onChange={this.handleInputChange}
                 name="tasks"
                 value={tasks}
+                placeholder="Describe tasks and responsibilities"
                 />
                 <input 
                 onChange={this.handleInputChange}

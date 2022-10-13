@@ -16,6 +16,7 @@ class Education extends Component {
      };
      
      this.handleInputChange = this.handleInputChange.bind(this);
+     this.handleEdit = this.handleEdit.bind(this);
  }
     
     handleInputChange(e) {
@@ -35,8 +36,8 @@ class Education extends Component {
             `${this.state.city}`,
             `${this.state.degree}`,
             `${this.state.subject}`,
-            `${this.state.from}`,
-            `${this.state.to}`,
+            `From: ${this.state.from}`,
+            `To: ${this.state.to}`,
             ];
         console.log(myArray);
         
@@ -49,6 +50,20 @@ class Education extends Component {
             to: "",
         });
     };
+
+    handleEdit = (e) => {
+        
+        this.setState({
+            uniName: "",
+            city: "",
+            degree: "",
+            subject: "",
+            from: "",
+            to: "",
+            eduArray: [],
+        });
+       }
+     
     
     render() {
      const { uniName, city, degree, subject, from, to, eduArray } = this.state;
@@ -104,6 +119,7 @@ class Education extends Component {
                 placeholder="To"
                 />
                 <button className="btn" type="submit">Submit</button>
+                <button className="btn" onClick={this.handleEdit}>Edit</button>
             </form>
         </div>
         );

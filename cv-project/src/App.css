@@ -55,7 +55,8 @@ p * {
   display: block;
 }
 
-input {
+input,
+textarea {
   appearance: none;
   width: 100%;
   height: 2rem;
@@ -86,4 +87,20 @@ input {
 button[type="submit"]:hover, button[type="submit"]:focus {
   background-color: black;
 }
+
+.returnDisplay {
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: auto;
+  justify-content: start;
+  
+  margin-top: -10px;
+  font-weight: bold;
+}
+
+
+ol {
+  padding-left: 1.8em;
+}
+
 
