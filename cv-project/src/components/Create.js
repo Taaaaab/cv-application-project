@@ -45,7 +45,6 @@ class Create extends Component {
   };
   
     handleEdit = (e) => {
-    e.preventDefault();
    
     this.setState({
       infoArray: [],
