@@ -13,6 +13,7 @@ class Create extends Component {
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   handleInputChange(e) {
@@ -36,7 +37,18 @@ class Create extends Component {
 
     this.setState({
       infoArray: this.state.infoArray.concat(myArray),
-      // infoArray: [...this.state.infoArray, myArray],
+      fullName: "",
+      email: "",
+      phone: "",
+
+    });
+  };
+  
+    handleEdit = (e) => {
+    e.preventDefault();
+   
+    this.setState({
+      infoArray: [],
       fullName: "",
       email: "",
       phone: "",
@@ -73,6 +85,7 @@ class Create extends Component {
             placeholder="Phone"
           />
           <button type="submit" className="btn">Submit</button>
+          <button onClick={this.handleEdit} className="btn">Edit</button>
         </form>
         <div className="returnDisplay">
           <h3 class="title">Contact Information</h3>
