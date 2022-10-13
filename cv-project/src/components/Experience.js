@@ -9,12 +9,14 @@ class Experience extends Component {
          posTitle: "",
          companyName: "",
          city: "",
+         tasks: "",
          from: "",
          to: "",
          xpArray: [],
      };
      
      this.handleInputChange = this.handleInputChange.bind(this);
+     this.handleEdit = this.handleEdit.bind(this);
  }
     
     handleInputChange(e) {
@@ -30,9 +32,10 @@ class Experience extends Component {
     handleSubmit = (e) => {
      e.preventDefault();
         const myArray = [
-            `Position Title: ${this.state.posTitle}`,
-            `Company Name: ${this.state.companyName}`,
-            `City: ${this.state.city}`,
+            `${this.state.posTitle}`,
+            `${this.state.companyName}`,
+            `${this.state.city}`,
+            `${this.state.tasks}`,
             `From: ${this.state.from}`,
             `To: ${this.state.to}`,
             ];
@@ -43,13 +46,27 @@ class Experience extends Component {
             posTitle: "",
             companyName: "",
             city: "",
+            tasks: "",
             from: "",
             to: "",
         });
     };
+ 
+  handleEdit = (e) => {
+        
+     this.setState({
+          xpArray: [],
+          posTitle: "",
+          companyName: "",
+          city: "",
+          tasks: "",
+          from: "",
+          to: "",
+     });
+    }
     
     render() {
-     const { posTitle, companyName, city, from, to, xpArray } = this.state;
+     const { posTitle, companyName, city, tasks, from, to, xpArray } = this.state;
         
      return (
          <div>
@@ -73,6 +90,11 @@ class Experience extends Component {
                 value={companyName}
                 placeholder="Company Name"
                 />
+                <textarea
+                onChange={this.handleInputChange}
+                name="tasks"
+                value={tasks}
+                />
                 <input 
                 onChange={this.handleInputChange}
                 name="city"
@@ -95,6 +117,7 @@ class Experience extends Component {
                 placeholder="To"
                 />
                 <button className="btn" type="submit">Submit</button>
+                <button className="btn" onClick={this.handleEdit}>Edit</button>
             </form>
         </div>
         );
