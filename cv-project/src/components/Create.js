@@ -28,9 +28,9 @@ class Create extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const myArray = [
-      `${this.state.fullName}`,
-      `${this.state.email}`,
-      `${this.state.phone}`,
+      `Name: ${this.state.fullName}`,
+      `Email: ${this.state.email}`,
+      `Phone: ${this.state.phone}`,
     ];
     console.log(myArray);
 
@@ -49,9 +49,7 @@ class Create extends Component {
 
     return (
       <div>
-        <div className="returnDisplay">
-          <Object infoArray={infoArray} />
-        </div>
+        <h3>Add Contact Info</h3>
         <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleInputChange}
@@ -76,6 +74,12 @@ class Create extends Component {
           />
           <button type="submit" className="btn">Submit</button>
         </form>
+        <div className="returnDisplay">
+          <h3 class="title">Contact Information</h3>
+          <div className="returnArray">
+          <Object infoArray={infoArray} />
+          </div>
+        </div>
       </div>
     );
   }

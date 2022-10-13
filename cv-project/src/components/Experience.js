@@ -30,11 +30,11 @@ class Experience extends Component {
     handleSubmit = (e) => {
      e.preventDefault();
         const myArray = [
-            `${this.state.posTitle}`,
-            `${this.state.companyName}`,
-            `${this.state.city}`,
-            `${this.state.from}`,
-            `${this.state.to}`,
+            `Position Title: ${this.state.posTitle}`,
+            `Company Name: ${this.state.companyName}`,
+            `City: ${this.state.city}`,
+            `From: ${this.state.from}`,
+            `To: ${this.state.to}`,
             ];
         console.log(myArray);
         
@@ -54,9 +54,10 @@ class Experience extends Component {
      return (
          <div>
             <div className="returnDisplay">
+            <h3>Work Experience</h3>
               <Object infoArray={xpArray} />
             </div>
-            <h3>Add Education Experience</h3>
+            <h3>Add Work Experience</h3>
             <form onSubmit={this.handleSubmit}>
                 <input 
                 onChange={this.handleInputChange}
