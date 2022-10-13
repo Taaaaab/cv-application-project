@@ -29,9 +29,9 @@ class Create extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const myArray = [
-      `Name: ${this.state.fullName}`,
-      `Email: ${this.state.email}`,
-      `Phone: ${this.state.phone}`,
+      `${this.state.fullName}`,
+      `${this.state.email}`,
+      `${this.state.phone}`,
     ];
     console.log(myArray);
 
