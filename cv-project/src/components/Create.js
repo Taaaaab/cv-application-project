@@ -58,14 +58,14 @@ const Create = () => {
             />
 //            <button onClick={handleFullName}>Submit Name</button>
             <input
-            onChange={handleEmailChange}
+            onChange={handleEmail}
             name="email"
             type="text"
             value={email}
             placeholder="Email"
             />
             <input
-            onChange={handlePhoneChange}
+            onChange={handlePhone}
             name="phone"
             type="text"
             value={phone}
