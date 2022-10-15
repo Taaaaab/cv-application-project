@@ -36,10 +36,10 @@ const Create = () => {
     ];
     console.log(myArray);
     
-      setInfoArray(infoArray = [myArray]);
+      setInfoArray(infoArray = myArray);
       setFullName(fullName = "");
-      (email = "");
-      (phone = "");
+      setEmail(email = "");
+      setPhone(phone = "");
   };
   
   return (
@@ -71,7 +71,7 @@ const Create = () => {
             <button onClick={handleEdit} className="btn">Edit</button>
           </form>
           <div className="returnDisplay">
-            <h3 class="title">Contact Information</h3>
+            <h3 className="title">Contact Information</h3>
             <div className="returnArray">
               <Object infoArray={infoArray} />
             </div>
